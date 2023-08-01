@@ -10,8 +10,6 @@ import { Grade } from "./pages/Grade";
 import { Subjects } from "./pages/Subjects";
 import { Class } from "./pages/Class";
 
-
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +31,11 @@ export const router = createBrowserRouter([
 
       {
         path: "/",
-        element: <div><a href="/sign-in">Login</a></div>,
+        element: (
+          <div>
+            <a href="/sign-in">Login</a>
+          </div>
+        ),
         errorElement: <PageNotFound />,
       },
       {
@@ -81,14 +83,6 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <div>new password</div>
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "/spaces/create",
-        element: (
-          <ProtectedRoute>
-            <div>/spaces/create</div>
           </ProtectedRoute>
         ),
       },
