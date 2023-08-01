@@ -14,7 +14,7 @@ import { Class } from "./pages/Class";
 
 export const router = createBrowserRouter([
   {
-    path: "/sign-in",
+    path: "/",
     element: <Outlet />,
     children: [
       {
@@ -31,13 +31,11 @@ export const router = createBrowserRouter([
         ),
       },
 
-     /*  {
+      {
         path: "/",
-        element: <div>
-          <a href="/sign-in">Login</a>
-        </div>,
+        element: <div><a href="/sign-in">Login</a></div>,
         errorElement: <PageNotFound />,
-      }, */
+      },
       {
         path: "/",
         element: (
