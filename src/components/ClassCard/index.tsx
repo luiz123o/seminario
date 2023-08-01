@@ -1,5 +1,4 @@
 import { createStyles, Text, Group } from "@mantine/core";
-import { useMemberByIdQuery } from "../../hooks/useMembersQuery";
 
 const useStyles = createStyles((theme) => ({
   icon: {

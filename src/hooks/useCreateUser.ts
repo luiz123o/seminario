@@ -1,7 +1,5 @@
-import { memberCreate } from "../api/member/memberCreate";
 import { supabase } from "../config/supabaseClient";
 import { hasUser } from "../api/auth/hasUser";
-import { useState } from "react";
 import { useCreateMemberMutation } from "../services/member/memberMutation";
 
 type PayloadReq = {

@@ -5,13 +5,10 @@ import { InputPassword } from "../InputPassword";
 import { InputPhone } from "../InputPhone";
 import { useStylesCreateUser } from "./styles";
 import { useForm } from "react-hook-form";
-import { memberCreate } from "../../api/member/memberCreate";
-import { supabase } from "../../config/supabaseClient";
-import { hasUser } from "../../api/auth/hasUser";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+
 import { useCreateUser } from "../../hooks/useCreateUser";
 
-type PayloadReq = {
+/* type PayloadReq = {
   name: string;
   document: string;
   email: string;
@@ -27,7 +24,7 @@ type PayloadReq = {
   password_confirmation: string;
   student?: boolean;
   teacher?: boolean;
-};
+}; */
 
 export const CEUser = () => {
   const defaultValues = {

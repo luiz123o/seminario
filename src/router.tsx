@@ -3,7 +3,6 @@ import App from "./App";
 import { PageNotFound } from "./components/PageNotFound";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { PublicRoute } from "./components/PublicRoute";
-import { SignIn } from "./components/SignIn";
 import { Login } from "./pages/Auth/Login";
 import { Users } from "./pages/Users";
 import { Students } from "./pages/Students";

@@ -1,6 +1,5 @@
-import { Ibt } from "../../assets/Ibt";
 import { SignIn } from "../../components/SignIn";
-import { Box, Center, Container } from "@mantine/core";
+import { Box, Container } from "@mantine/core";
 
 export const Login = () => {
   return (

@@ -18,6 +18,9 @@ export const Subjects = () => {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+
+  console.log(currentData);
+
   return (
     <>
       <PageLayout

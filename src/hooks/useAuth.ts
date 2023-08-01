@@ -2,9 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { User, Session } from "@supabase/supabase-js";
 import { supabase } from "../config/supabaseClient";
-import { useMutation } from "@tanstack/react-query";
-import { signin } from "../api/auth/signIn";
-import { useNavigateTo } from "../helpers/navigateTo";
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -14,6 +11,8 @@ export const useAuth = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [loadedSession, setLoadedSession] = useState(false)
 
+  console.log("user", user)
+  console.log("isLoading", isLoading)
 
   useEffect(() => {
     (async () => {
@@ -52,5 +51,6 @@ export const useAuth = () => {
 };
 
 async function handleSignIn(session: Session | null) {
+  console.log(session)
   throw new Error("Function not implemented.");
 }

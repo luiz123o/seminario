@@ -86,9 +86,10 @@ export const Nav = (props: NavProps) => {
 
   const navitate = useNavigate();
 
-  const { getDrawerProps, onOpen } = useDrawer();
+  const { getDrawerProps } = useDrawer();
 
   const handleChangeActive = (title = "", emoji = "") => {
+    console.log(title, emoji);
     return
   };
 

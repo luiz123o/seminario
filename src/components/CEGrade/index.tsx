@@ -1,7 +1,6 @@
-import { Box, Container, Select, TextInput } from "@mantine/core";
+import { Box, Container, Select } from "@mantine/core";
 
 import { useStylesCEGrade } from "./styles";
-import { useTeachersQuery } from "../../hooks/useTeachersQuery";
 
 export const CEGrade = () => {
   const { classes } = useStylesCEGrade();

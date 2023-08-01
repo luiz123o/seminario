@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Header, Title } from "@mantine/core";
+import { Box, Container, Divider, Title } from "@mantine/core";
 
 export type PageLayoutProps = {
   children: React.ReactNode;

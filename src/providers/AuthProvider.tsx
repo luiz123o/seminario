@@ -1,4 +1,4 @@
-import { Session, User } from "@supabase/supabase-js";
+import { Session } from "@supabase/supabase-js";
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { supabase } from "../config/supabaseClient";
 

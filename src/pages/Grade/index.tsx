@@ -2,7 +2,6 @@ import { Box, Button } from "@mantine/core";
 import { PageLayout } from "../../layouts/PageLayout";
 import { useState } from "react";
 import { DsDrawer } from "@raisesistemas/ds";
-import { CEUser } from "../../components/CEUser";
 import { Pagination } from "../../components/Pagination";
 import { usePagination } from "../../hooks/usePagination";
 import { CEGrade } from "../../components/CEGrade";
@@ -18,6 +17,8 @@ export const Grade = () => {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+
+  console.log(currentData)
 
   return (
     <>
