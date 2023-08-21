@@ -6,15 +6,18 @@ import { useDisclosure } from "@mantine/hooks";
 
 export default function App() {
   const [opened, { toggle, close }] = useDisclosure(false);
-  console.log(opened, toggle);
+  console.log(opened, toggle)
   return (
     <AppShell
       navbarOffsetBreakpoint="sm"
       navbar={<Nav onClose={close} />}
       header={<div>Header</div>}
       padding={0}
+      
     >
-      <Outlet />
+      <Box>
+        <Outlet />
+      </Box>
     </AppShell>
   );
 }
