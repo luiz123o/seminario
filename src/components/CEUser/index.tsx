@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 
 import { useCreateUser } from "../../hooks/useCreateUser";
 
-/* type PayloadReq = {
+type PayloadReq = {
   name: string;
   document: string;
   email: string;
@@ -24,10 +24,10 @@ import { useCreateUser } from "../../hooks/useCreateUser";
   password_confirmation: string;
   student?: boolean;
   teacher?: boolean;
-}; */
+};
 
 export const CEUser = () => {
-  const defaultValues = {
+  const defaultValues: PayloadReq = {
     name: "",
     document: "",
     email: "",
@@ -39,16 +39,15 @@ export const CEUser = () => {
     state: "",
     avatar: "",
     phone: "",
-    password: "",
+    password: "",    
     password_confirmation: "",
     student: false,
     teacher: false,
+
   };
   const { classes } = useStylesCreateUser();
   const { handleCreateUser, isLoading } = useCreateUser();
-  const { register, handleSubmit } = useForm({ defaultValues });
-
- 
+  const { register, handleSubmit } = useForm<PayloadReq>({ defaultValues });
 
   return (
     <Container className={classes.container}>
@@ -83,7 +82,7 @@ export const CEUser = () => {
       </Box>
       <Box className={classes.contentFlex}>
         <InputPhone register={register} className={classes.inputFlex} />
-        <InputDate register={register} className={classes.inputFlex} />
+        <InputDate name="birth" register={register} className={classes.inputFlex} />
       </Box>
       <Box className={classes.contentFlex}>
         <TextInput

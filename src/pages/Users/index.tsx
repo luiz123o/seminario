@@ -32,7 +32,7 @@ export const Users = () => {
               width: "100%",
             }}
           >
-            <Button onClick={() => setOpen(true)}>Novo usuario</Button>
+            <Button type="button" onClick={() => setOpen(true)}>Novo usuario</Button>
           </Box>
         }
         children={

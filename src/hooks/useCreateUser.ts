@@ -38,6 +38,8 @@ export const useCreateUser = () => {
 
     const { password, password_confirmation, ...rest } = props;
 
+    console.log(password, password_confirmation)
+
     const { error: SignUpErro, data: DataCreateAccount } =
       await supabase.auth.signUp({
         email: props.email,
