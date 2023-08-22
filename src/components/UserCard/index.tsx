@@ -1,5 +1,19 @@
-import { createStyles, Avatar, Text, Group } from "@mantine/core";
-import { IconPhoneCall, IconAt, IconEdit, IconTrash } from "@tabler/icons-react";
+import {
+  createStyles,
+  Avatar,
+  Text,
+  Group,
+  UnstyledButton,
+} from "@mantine/core";
+import {
+  IconPhoneCall,
+  IconAt,
+  IconEdit,
+  IconTrash,
+} from "@tabler/icons-react";
+import { UpdateUser } from "../UpdateUser";
+import { DsDrawer } from "@raisesistemas/ds";
+import { useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   icon: {
@@ -13,6 +27,24 @@ const useStyles = createStyles((theme) => ({
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
   },
 }));
+type PayloadReq = {
+  id: number;
+  name: string;
+  document: string;
+  email: string;
+  street: string;
+  number_home: number;
+  complement: string;
+  birth: Date;
+  city: string;
+  state: string;
+  avatar: string;
+  phone: string;
+  password: string;
+  password_confirmation: string;
+  student?: boolean;
+  teacher?: boolean;
+};
 
 interface UserInfoIconsProps {
   avatar: string;
@@ -20,6 +52,7 @@ interface UserInfoIconsProps {
   title: string;
   phone: string;
   email: string;
+  data: PayloadReq;
 }
 
 export function UserInfoIcons({
@@ -28,8 +61,10 @@ export function UserInfoIcons({
   title,
   phone,
   email,
+  data,
 }: UserInfoIconsProps) {
   const { classes } = useStyles();
+  const [open, setOpen] = useState<boolean>(false);
   return (
     <Group
       style={{
@@ -44,11 +79,13 @@ export function UserInfoIcons({
         maxHeight: "7rem",
       }}
     >
-      <Group style={{
-        display: "flex",
-        width: "100%",
-        justifyContent: "space-between",
-      }}>
+      <Group
+        style={{
+          display: "flex",
+          width: "100%",
+          justifyContent: "space-between",
+        }}
+      >
         <Group noWrap>
           <Avatar src={avatar} size={80} radius="md" />
           <div>
@@ -80,10 +117,26 @@ export function UserInfoIcons({
           </div>
         </Group>
         <Group>
-          <IconEdit stroke={2} size="1rem"  />
-          <IconTrash stroke={2} size="1rem"  />
+          <UnstyledButton onClick={() => setOpen(true)}>
+            <IconEdit stroke={2} size="1rem" />
+          </UnstyledButton>
+          <UnstyledButton
+            onClick={() => {
+              console.log("oi");
+            }}
+          >
+            <IconTrash stroke={2} size="1rem" />
+          </UnstyledButton>
         </Group>
       </Group>
+      <DsDrawer
+        size="xl"
+        title={"Atualize o usuário"}
+        opened={open}
+        onClose={() => setOpen(false)}
+      >
+        <UpdateUser data={data} />
+      </DsDrawer>
     </Group>
   );
 }

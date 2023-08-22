@@ -26,7 +26,7 @@ type PayloadReq = {
 
 export const UpdateUser = ({ data }: { data: PayloadReq }) => {
   const { classes } = useStylesUpdateUser();
-
+  console.log(data)
   const { handleUpdateUser, isLoading } = useEditUser();
   const {
     register,
