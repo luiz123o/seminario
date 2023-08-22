@@ -38,7 +38,7 @@ export const useCreateUser = () => {
 
     const { password, password_confirmation, ...rest } = props;
 
-   console.log(password, password_confirmation)
+    console.log(password, password_confirmation);
 
     const { error: SignUpErro, data: DataCreateAccount } =
       await supabase.auth.signUp({
@@ -51,11 +51,11 @@ export const useCreateUser = () => {
           emailRedirectTo: `${window.location.origin}/reset-password}`,
         },
       });
-      
+
     const data = { data: { user_uuid: DataCreateAccount.user?.id, ...rest } };
 
     mutate(data);
-   
+
     if (SignUpErro) throw new Error(SignUpErro.message);
   };
 

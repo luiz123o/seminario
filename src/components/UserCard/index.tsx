@@ -12,7 +12,14 @@ import {
   IconTrash,
 } from "@tabler/icons-react";
 import { UpdateUser } from "../UpdateUser";
-import { DsDrawer } from "@raisesistemas/ds";
+import {
+  DsButtonDestructive,
+  DsButtonSuccess,
+  DsDrawer,
+  DsGroup,
+  DsModal,
+  DsText,
+} from "@raisesistemas/ds";
 import { useState } from "react";
 
 const useStyles = createStyles((theme) => ({
@@ -65,6 +72,7 @@ export function UserInfoIcons({
 }: UserInfoIconsProps) {
   const { classes } = useStyles();
   const [open, setOpen] = useState<boolean>(false);
+  const [openModal, setOpenModal] = useState<boolean>(false);
   return (
     <Group
       style={{
@@ -120,11 +128,7 @@ export function UserInfoIcons({
           <UnstyledButton onClick={() => setOpen(true)}>
             <IconEdit stroke={2} size="1rem" />
           </UnstyledButton>
-          <UnstyledButton
-            onClick={() => {
-              console.log("oi");
-            }}
-          >
+          <UnstyledButton onClick={() => setOpenModal(true)}>
             <IconTrash stroke={2} size="1rem" />
           </UnstyledButton>
         </Group>
@@ -137,6 +141,31 @@ export function UserInfoIcons({
       >
         <UpdateUser data={data} />
       </DsDrawer>
+      <DsModal
+        opened={openModal}
+        title={title}
+        onClose={() => setOpenModal(false)}
+        main={
+          <DsText variant="body-2" weight="regular">
+            Você clicou em excluir o usuário <b>{name}</b>, como deseja
+            proceguir?
+          </DsText>
+        }
+        footer={
+          <DsGroup position="right">
+            <DsButtonDestructive onClick={() => setOpenModal(false)}>
+              Cancelar
+            </DsButtonDestructive>
+            <DsButtonSuccess
+              onClick={() => {
+                console.log("deletado");
+              }}
+            >
+              Excluir
+            </DsButtonSuccess>
+          </DsGroup>
+        }
+      />
     </Group>
   );
 }
