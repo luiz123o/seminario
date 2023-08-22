@@ -12,7 +12,7 @@ export const Students = () => {
     usePagination(data, {
       itemsPerPage: 5,
     });
- 
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
@@ -27,9 +27,7 @@ export const Students = () => {
               justifyContent: "flex-end",
               width: "100%",
             }}
-          >
-            
-          </Box>
+          ></Box>
         }
         children={
           <Box
@@ -50,6 +48,7 @@ export const Students = () => {
                 title={""}
                 phone={item.phone}
                 email={item.email}
+                data={item}
               />
             ))}
           </Box>
