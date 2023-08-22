@@ -148,7 +148,7 @@ export function UserInfoIcons({
         main={
           <DsText variant="body-2" weight="regular">
             Você clicou em excluir o usuário <b>{name}</b>, como deseja
-            proceguir?
+            prosseguir?
           </DsText>
         }
         footer={
