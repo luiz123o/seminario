@@ -1,12 +1,12 @@
 import { Box, Button, Checkbox, Container, TextInput } from "@mantine/core";
 import { IconAt } from "@tabler/icons-react";
 import { InputDate } from "../InputDate";
-import { InputPassword } from "../InputPassword";
-import { useStylesCreateUser } from "./styles";
+import { useStylesUpdateUser } from "./styles";
 import { useForm } from "react-hook-form";
-import { useCreateUser } from "../../hooks/useCreateUser";
+import { useEditUser } from "../../hooks/useEditUser";
 
 type PayloadReq = {
+  id: number;
   name: string;
   document: string;
   email: string;
@@ -24,35 +24,16 @@ type PayloadReq = {
   teacher?: boolean;
 };
 
-export const CEUser = () => {
-  const defaultValues: PayloadReq = {
-    name: "",
-    document: "",
-    email: "",
-    street: "",
-    number_home: 0,
-    complement: "",
-    birth: new Date(),
-    city: "",
-    state: "",
-    avatar: "",
-    phone: "",
-    password: "",
-    password_confirmation: "",
-    student: false,
-    teacher: false,
-  };
-  const { classes } = useStylesCreateUser();
+export const UpdateUser = ({ data }: { data: PayloadReq }) => {
+  const { classes } = useStylesUpdateUser();
 
-  const { handleCreateUser, isLoading } = useCreateUser();
+  const { handleUpdateUser, isLoading } = useEditUser();
   const {
     register,
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm<PayloadReq>({
-    defaultValues,
-  });
+  } = useForm({ defaultValues: { ...data } });
 
   return (
     <Container className={classes.container}>
@@ -160,20 +141,9 @@ export const CEUser = () => {
           label="Professor"
         />
       </Box>
+
       <Box className={classes.contentFlex}>
-        <InputPassword
-          register={register}
-          className={classes.inputFlex}
-          isConfirmation={false}
-        />
-        <InputPassword
-          register={register}
-          className={classes.inputFlex}
-          isConfirmation
-        />
-      </Box>
-      <Box className={classes.contentFlex}>
-        <Button loading={isLoading} onClick={handleSubmit(handleCreateUser)}>
+        <Button loading={isLoading} onClick={handleSubmit(handleUpdateUser)}>
           Salvar
         </Button>
       </Box>

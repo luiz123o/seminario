@@ -3,7 +3,7 @@ import { queries } from "../services/query-key-factory";
 
 export const useMembersQuery = () => {
   const { data, ...rest } = useQuery({
-    ...queries.members.list()
+    ...queries.members.list(),
   });
 
   return {
@@ -14,11 +14,11 @@ export const useMembersQuery = () => {
 
 export const useMemberByIdQuery = (id: number) => {
   const { data, ...rest } = useQuery({
-    ...queries.members.memberById(id)
+    ...queries.members.memberById(id),
   });
 
   return {
     data: data,
     ...rest,
   };
-}
+};

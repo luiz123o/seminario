@@ -1,19 +1,24 @@
-import { Input } from "@mantine/core";
-import { useId } from "@mantine/hooks";
 import { IMaskInput } from "react-imask";
+import { Controller } from "react-hook-form";
 
-export function InputPhone({ className, register }: { className: string, register: any }) {
-  const id = useId();
+export function InputPhone({
+  className,
+  register,
+  control,
+}: {
+  className: string;
+  control: any;
+  register: any;
+}) {
   return (
-    <Input.Wrapper id={id} label="Celular" required>
-      <Input<any>
-        {...register("phone")}
-        component={IMaskInput}
-        mask="+55 (00) *0000-0000"
-        id={id}
-        placeholder="Celular"
-        className={className}
-      />
-    </Input.Wrapper>
+    <Controller
+      {...register("phone")}
+      as={IMaskInput}
+      mask="+55 (00) *0000-0000"
+      name="phone"
+      control={control}
+      placeholder="Celular"
+      className={className}
+    />
   );
 }

@@ -1,5 +1,5 @@
 import { createStyles, Avatar, Text, Group } from "@mantine/core";
-import { IconPhoneCall, IconAt } from "@tabler/icons-react";
+import { IconPhoneCall, IconAt, IconEdit, IconTrash } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   icon: {
@@ -35,39 +35,54 @@ export function UserInfoIcons({
       style={{
         display: "flex",
         flex: 1,
-        width: "100%",         
+        width: "100%",
         padding: "1rem",
         borderRadius: "1rem",
-        backgroundColor: "#eaf5f1",          
+        backgroundColor: "#eaf5f1",
         marginLeft: "0rem",
         marginRight: "0rem",
+        maxHeight: "7rem",
       }}
     >
-      <Group noWrap>
-        <Avatar src={avatar} size={80} radius="md" />
-        <div>
-          <Text fz="xs" tt="uppercase" fw={700} c="dimmed">
-            {title}
-          </Text>
-
-          <Text fz="lg" fw={500} className={classes.name}>
-            {name}
-          </Text>
-
-          <Group noWrap spacing={10} mt={3}>
-            <IconAt stroke={1.5} size="1rem" className={classes.icon} />
-            <Text fz="xs" c="dimmed">
-              {email}
+      <Group style={{
+        display: "flex",
+        width: "100%",
+        justifyContent: "space-between",
+      }}>
+        <Group noWrap>
+          <Avatar src={avatar} size={80} radius="md" />
+          <div>
+            <Text fz="xs" tt="uppercase" fw={700} c="dimmed">
+              {title}
             </Text>
-          </Group>
 
-          <Group noWrap spacing={10} mt={5}>
-            <IconPhoneCall stroke={1.5} size="1rem" className={classes.icon} />
-            <Text fz="xs" c="dimmed">
-              {phone}
+            <Text fz="lg" fw={500} className={classes.name}>
+              {name}
             </Text>
-          </Group>
-        </div>
+
+            <Group noWrap spacing={10} mt={3}>
+              <IconAt stroke={1.5} size="1rem" className={classes.icon} />
+              <Text fz="xs" c="dimmed">
+                {email}
+              </Text>
+            </Group>
+
+            <Group noWrap spacing={10} mt={5}>
+              <IconPhoneCall
+                stroke={1.5}
+                size="1rem"
+                className={classes.icon}
+              />
+              <Text fz="xs" c="dimmed">
+                {phone}
+              </Text>
+            </Group>
+          </div>
+        </Group>
+        <Group>
+          <IconEdit stroke={2} size="1rem"  />
+          <IconTrash stroke={2} size="1rem"  />
+        </Group>
       </Group>
     </Group>
   );

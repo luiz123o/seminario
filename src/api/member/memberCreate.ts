@@ -6,10 +6,15 @@ export type JoinPayload = {
     email: string;
     street: string;
     number_home: number;
+    complement: string;
+    birth: Date;
     city: string;
     state: string;
     avatar: string;
-    phone?: string;
+    phone: string;
+    student?: boolean;
+    teacher?: boolean;
+    user_uuid?: string;
   };
 };
 
